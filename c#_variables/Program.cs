@@ -1,4 +1,47 @@
 ﻿using System;
+public class Father
+{
+    public void Display()
+    {
+        Console.WriteLine("This is the father class");
+    }
+}
+
+public abstract class Animal
+{
+    public abstract void MakeSound(); // zorunlu implement
+    public void Eat()
+    {
+        Console.WriteLine("This animal is eating"); // opsiyonel, tüm hayvanlar bunu kullanabilir
+    }
+}
+
+public class Dog : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Woof Woof");
+    }
+}
+
+public class Cat : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Meow");
+    }
+}
+
+public static class MathHelper
+{
+    public static int Add(int a, int b)
+    {
+        return a + b;
+    }
+}
+
+// var a = new Animal("Rex");
+// Console.WriteLine(a.Name); // Rex
 
 namespace HelloWorld
 {
@@ -6,12 +49,10 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
-            /*Console.WriteLine("I am Learning C#");
-            Console.WriteLine("It is awesome!"); */
-            // Console.WriteLine("Lütfen bir şeyler yazın ve Enter'a basın:");
-            var text = Console.ReadLine();
-            Console.WriteLine($"You entered: {text}");
+
+
+            var sum = MathHelper.Add(5, 10);
+            Console.WriteLine($"Sum: {sum}, type: {sum.GetType()}");
         }
     }
 }
