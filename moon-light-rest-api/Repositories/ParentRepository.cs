@@ -19,10 +19,15 @@ namespace moon_light_rest_api.Repositories
             return await _db.QueryAsync<Parent>(sql);
         }
 
-        public async Task AddAsync(Parent parent)
+        public async Task<Parent> AddAsync(Parent parent)
         {
-            var sql = "INSERT INTO public.parents (name, phonenumber, email) VALUES (@Name, @PhoneNumber, @Email)";
-            await _db.ExecuteAsync(sql, parent);
+            var sql = "INSERT INTO parents (name, phonenumber, email) VALUES (@Name, @PhoneNumber, @Email)";
+            var affectedRows = await _db.ExecuteAsync(sql, parent);
+
+            if (affectedRows == 0)
+                throw new Exception("Kayıt eklenemedi.");
+
+            return parent; // ID otomatik gelmez, SERIAL/IDENTITY varsa ayrı sorgu ile alınabilir
         }
     }
 }

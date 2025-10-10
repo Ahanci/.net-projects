@@ -26,6 +26,26 @@ namespace moon_light_rest_api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ParentCreateDto dto)
         {
+            if (dto == null)
+                return BadRequest("Geçersiz istek.");
+
+            if (string.IsNullOrWhiteSpace(dto.Name))
+                return BadRequest(new
+                {
+                    isError = true,
+                    message = "İsim zorunludur."
+                });
+
+            if (string.IsNullOrWhiteSpace(dto.Email))
+                return BadRequest(new
+                {
+                    isError = true,
+                    message = "Email zorunludur."
+                });
+
+            // basit bir email kontrolü (örnek)
+            if (!dto.Email.Contains("@"))
+                return BadRequest("Geçersiz email formatı.");
             var parent = new Parent
             {
                 Name = dto.Name,
@@ -33,8 +53,16 @@ namespace moon_light_rest_api.Controllers
                 Email = dto.Email
             };
 
-            await _repository.AddAsync(parent);
-            return CreatedAtAction(nameof(GetAll), new { id = parent.Id }, parent);
+            var result = await _repository.AddAsync(parent);
+            Console.WriteLine($"result: {result}");
+            if (result == null)
+                return StatusCode(500, "Kayıt eklenemedi.");
+            // return CreatedAtAction(nameof(GetAll), new { id = parent.Id }, parent);
+            return Ok(new
+            {
+                message = "Kayıt başarıyla eklendi.",
+                data = result
+            });
         }
     }
 }

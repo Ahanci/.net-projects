@@ -47,14 +47,24 @@ using Microsoft.OpenApi.Models;
 using Npgsql;
 using System.Data;
 using moon_light_rest_api.Repositories;
+using FluentMigrator.Runner;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Connection string
-var connectionString = builder.Configuration.GetConnectionString("NeonPostgres");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Dapper IDbConnection
 builder.Services.AddScoped<IDbConnection>(sp => new NpgsqlConnection(connectionString));
+
+// FluentMigrator ekle
+builder.Services
+    .AddFluentMigratorCore()
+    .ConfigureRunner(rb => rb
+        .AddPostgres() // PostgreSQL kullanıyorsun
+        .WithGlobalConnectionString(connectionString)
+        .ScanIn(typeof(Program).Assembly).For.Migrations()) // Migrations klasörünü tarar
+    .AddLogging(lb => lb.AddFluentMigratorConsole());
 
 // Repository
 builder.Services.AddScoped<IParentRepository, ParentRepository>();
@@ -67,6 +77,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// ✅ MIGRATIONS’I OTOMATİK ÇALIŞTIR
+using (var scope = app.Services.CreateScope())
+{
+    var runner = scope.ServiceProvider.GetRequiredService<IMigrationRunner>();
+    runner.MigrateUp(); // <-- işte tabloyu burada oluşturur
+}
+
 
 // Swagger middleware
 app.UseSwagger();

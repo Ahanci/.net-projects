@@ -9,6 +9,6 @@ namespace moon_light_rest_api.Repositories
     public interface IParentRepository
     {
         Task<IEnumerable<Parent>> GetAllAsync();
-        Task AddAsync(Parent parent);
+        Task<Parent> AddAsync(Parent parent);
     }
 }
