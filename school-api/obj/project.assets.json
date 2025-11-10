@@ -867,11 +867,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\repos\\.net rest api projects\\.net-projects\\school-api\\school-api.csproj",
+      "projectUniqueName": "C:\\HNCGL\\my-repos\\.net-projects\\school-api\\school-api.csproj",
       "projectName": "school-api",
-      "projectPath": "C:\\repos\\.net rest api projects\\.net-projects\\school-api\\school-api.csproj",
+      "projectPath": "C:\\HNCGL\\my-repos\\.net-projects\\school-api\\school-api.csproj",
       "packagesPath": "C:\\Users\\abdulkerim.hancioglu\\.nuget\\packages\\",
-      "outputPath": "C:\\repos\\.net rest api projects\\.net-projects\\school-api\\obj\\",
+      "outputPath": "C:\\HNCGL\\my-repos\\.net-projects\\school-api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\abdulkerim.hancioglu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -934,7 +934,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

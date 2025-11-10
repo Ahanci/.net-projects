@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FkSZwA4N3+U=",
+  "dgSpecHash": "gv+zRxsTt5U=",
   "success": true,
-  "projectFilePath": "C:\\repos\\.net rest api projects\\.net-projects\\school-api\\school-api.csproj",
+  "projectFilePath": "C:\\HNCGL\\my-repos\\.net-projects\\school-api\\school-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abdulkerim.hancioglu\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.6\\microsoft.aspnetcore.openapi.9.0.6.nupkg.sha512",
     "C:\\Users\\abdulkerim.hancioglu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\8.0.14\\microsoft.extensions.apidescription.server.8.0.14.nupkg.sha512",
