@@ -14,6 +14,13 @@ https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/overview
 
 ## https://www.programiz.com/csharp-programming/getting-started
 
+# zerotomastery
+
+https://zerotomastery.io/cheatsheets/csharp-cheat-sheet/
+
+# Milanovic
+
+https://github.com/milanm/csharp-cheatsheet?tab=readme-ov-file
 
 # UDEMY ROBERT GIOIA COURSE
 
